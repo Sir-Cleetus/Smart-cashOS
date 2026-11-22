@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fa400b8-b0fa-4f06-85e3-7b465e76f53a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cash/sample/Controls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cash/sample/Controls.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,65 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0337181267633502E-30" />
+      <entry key="MS500" value="1.0066544700984628E-6" />
+      <entry key="S2" value="0.03167525403439598" />
+      <entry key="S5" value="0.25135529744106927" />
+      <entry key="S10" value="0.5013534655724887" />
+      <entry key="S30" value="0.794639363436243" />
+      <entry key="S60" value="0.9246283800275498" />
+      <entry key="M2" value="1.3520377377051773" />
+      <entry key="M5" value="2.811915426322318" />
+      <entry key="M10" value="4.017231639322549" />
+      <entry key="M15" value="4.571858260986386" />
+      <entry key="M30" value="5.2267033523990625" />
+      <entry key="H1" value="5.597282622704712" />
+      <entry key="H2" value="5.794454436519743" />
+      <entry key="H4" value="5.896158514537693" />
+      <entry key="D1" value="5.982542751046215" />
+      <entry key="W1" value="5.99750240054531" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0" />
+      <entry key="M15" value="1.0" />
+      <entry key="M30" value="1.0" />
+      <entry key="H1" value="1.0" />
+      <entry key="H2" value="1.0" />
+      <entry key="H4" value="1.0" />
+      <entry key="D1" value="1.0" />
+      <entry key="W1" value="1.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.996831197650831E-4" />
+      <entry key="MS500" value="0.18199871202130222" />
+      <entry key="S2" value="0.6648023959160295" />
+      <entry key="S5" value="1.0117989101458735" />
+      <entry key="S10" value="1.3287675123825518" />
+      <entry key="S30" value="1.7153720737743743" />
+      <entry key="S60" value="1.8806181506875201" />
+      <entry key="M2" value="2.3251582944562768" />
+      <entry key="M5" value="3.7949857262896134" />
+      <entry key="M10" value="5.006235809600239" />
+      <entry key="M15" value="5.563751887674833" />
+      <entry key="M30" value="6.222192228011499" />
+      <entry key="H1" value="6.594897489582998" />
+      <entry key="H2" value="6.79322739954822" />
+      <entry key="H4" value="6.895536105778026" />
+      <entry key="D1" value="6.982437757721698" />
+      <entry key="W1" value="6.997487370363493" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -46,28 +105,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lewis/Documents/project/Version 0.1/Smart-cashOS/src/main/resources/cash/sample&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "refactor/easier-setup-system",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/lewis/Documents/project/Version 0.1/Smart-cashOS/src/main/resources/cash/sample",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lewis\Documents\project\Version 0.1\Smart-cashOS\src\main\resources\cash\sample" />

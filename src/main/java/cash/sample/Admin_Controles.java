@@ -14,12 +14,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.*;
 
-public class Admin_Controles  {
+public class Admin_Controles {
 
 
-
-
-    public void Create_Account(ActionEvent w ) throws IOException {
+    public void Create_Account(ActionEvent w) throws IOException {
 
 
         Stage Current = (Stage) ((Node) w.getSource()).getScene().getWindow(); //for getting the main menu stage
@@ -36,16 +34,9 @@ public class Admin_Controles  {
         Stage_Account_Creation.show();
 
 
-
-
-
-
-
-
-
     }
 
-//the below get a text field to get user input from the Create Account GUI
+    //the below get a text field to get user input from the Create Account GUI
     @FXML
     private TextField Enter_Name;
 
@@ -62,9 +53,7 @@ public class Admin_Controles  {
     public void Submit_create(ActionEvent w) throws IOException { //creates new account
 //        User.Create_Account(Enter_Name.getText());
 
-        try{
-
-
+        try {
 
 
             Connection connection = DriverManager.getConnection( //creates connection with the sql databse
@@ -81,13 +70,13 @@ public class Admin_Controles  {
             boolean Admin = Admin_Check.isSelected();
             String Passcheck = Pass_Check.getText();
 
-            if(Admin){ //used to check if the password was entered multiple times
+            if (Admin) { //used to check if the password was entered multiple times
                 User_Rights = "Admin";
             }
 
-            if(! Passcheck.equals(password)){
+            if (!Passcheck.equals(password)) {
                 CreateAccountTitle.setText("Password Is incorrect");
-            }else {
+            } else {
 
 
                 String insert = "INSERT INTO USER  (name, password, Rights)" + //inserts the new account into the databse
@@ -100,19 +89,15 @@ public class Admin_Controles  {
                 preparedStatement.setString(3, User_Rights);
 
 
-
-
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
-
 
 
                 Back2Menu(w);
             }
 
 
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error");
         }
 
@@ -130,9 +115,9 @@ public class Admin_Controles  {
     Text Create_Item_Error;
 
     @FXML
-    CheckBox Create_Item_Restricted ;
+    CheckBox Create_Item_Restricted;
 
-    public void Create_Item( ) { //used to create items in the item table
+    public void Create_Item() { //used to create items in the item table
 
 
         try {
@@ -142,7 +127,6 @@ public class Admin_Controles  {
 
             BigDecimal Item_Price = new BigDecimal(Create_Item_ItemPrice.getText());
             BigDecimal Item_Price_Rounder;
-
 
 
             Item_Price_Rounder = Item_Price.setScale(1, RoundingMode.FLOOR);  // this is used to round
@@ -155,13 +139,11 @@ public class Admin_Controles  {
 
             int restricted;
 
-            if(Create_Item_Restricted.isSelected()){
+            if (Create_Item_Restricted.isSelected()) {
                 restricted = 1;
-            }else {
+            } else {
                 restricted = 0;
             }
-
-
 
 
             Connection connection = DriverManager.getConnection( //creates connection with the sql databse
@@ -179,8 +161,7 @@ public class Admin_Controles  {
 
             preparedStatement.setString(1, Item_Name);
             preparedStatement.setDouble(2, price);
-            preparedStatement.setInt(3,restricted);
-
+            preparedStatement.setInt(3, restricted);
 
 
             preparedStatement.executeUpdate();
@@ -189,8 +170,7 @@ public class Admin_Controles  {
             Create_Item_Error.setText("Item Created");
 
 
-
-        }catch (NumberFormatException q){
+        } catch (NumberFormatException q) {
             Create_Item_Error.setText("Please enter a Number");
 
         } catch (SQLException e) {
@@ -206,6 +186,7 @@ public class Admin_Controles  {
 
     @FXML
     Text DeleteItemError;
+
     public void Delete_Item() throws SQLException { //deletes an Item
 
 
@@ -219,11 +200,10 @@ public class Admin_Controles  {
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setString(1,Delete_ItemText.getText().toLowerCase());
+        preparedStatement.setString(1, Delete_ItemText.getText().toLowerCase());
 
 
-
-           int affectedRows = preparedStatement.executeUpdate();
+        int affectedRows = preparedStatement.executeUpdate();
 
         if (affectedRows == 1) {
             DeleteItemError.setText("Deleted Item");
@@ -232,10 +212,6 @@ public class Admin_Controles  {
         } else {
             DeleteItemError.setText("There was an unexcpected Item");
         }
-
-
-
-
 
 
     }
@@ -252,7 +228,6 @@ public class Admin_Controles  {
 
 
     public void Submit_View() { //submits the user request to view
-
 
 
         User user = new User("");
@@ -276,20 +251,18 @@ public class Admin_Controles  {
             ResultSet resultSet = statement.executeQuery(sql);
 
 
-
-            while (resultSet.next()){
+            while (resultSet.next()) {
 
                 user.setName(resultSet.getString("name"));
 
-                if(name.equals(user.getName())){
+                if (name.equals(user.getName())) {
                     //tbd add in view account screen
 
 
                     break;
 
 
-
-                }else {
+                } else {
                     System.out.println("Account not found");
 
 
@@ -298,12 +271,10 @@ public class Admin_Controles  {
 
             }
 
-    } catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-
 
 
     @FXML
@@ -313,7 +284,7 @@ public class Admin_Controles  {
     @FXML
     Text Stock_ItemError;
 
-    public void Stock_Item_Submit(){ //this is the Handling function for submiting Stocking of an Item
+    public void Stock_Item_Submit() { //this is the Handling function for submiting Stocking of an Item
         try {
             String Item_Name = Stock_ItemName.getText().toLowerCase();
             int Stock_Quantity = Integer.parseInt(Stock_ItemQuanity.getText());
@@ -330,7 +301,7 @@ public class Admin_Controles  {
             System.out.println(Stock_Quantity);
 
             preparedStatement.setInt(1, Stock_Quantity);
-            preparedStatement.setString(2,Item_Name);
+            preparedStatement.setString(2, Item_Name);
 
             Stock_ItemError.setText("Item Stocked");
 
@@ -339,14 +310,147 @@ public class Admin_Controles  {
             preparedStatement.close();
 
 
-        }catch (NumberFormatException e){ //for checking if the user enterd anything but a number
+        } catch (NumberFormatException e) { //for checking if the user enterd anything but a number
             Stock_ItemError.setText("You did not enter a Number Please Enter a Number");
-        } catch (SQLDataException sqlDataException){
+        } catch (SQLDataException sqlDataException) {
             System.out.println("Item Not Found");
         } catch (SQLException e) {
             System.out.println("Error with connecting with server");
         }
 
+
+    }
+
+    @FXML
+    TextField Alert_Name;
+    @FXML
+    TextField Alert_Quanity;
+    @FXML
+    Text Admin_SettingsError;
+    public void Alert_Qaunity_Submit() throws SQLException { //creates the alert for the user in the item schema
+
+        Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://127.0.0.1:3306/test",
+                "root",
+                "1234"
+        );
+
+        try {
+            String ItemAmount = StockAlert_ItemAmmount.getText().toLowerCase();
+            int itemamount2 = Integer.parseInt(ItemAmount);
+//            String sql = "INSERT into alertitems (Name,AlertValue) " +
+//                    "VALUES (?,?)";
+
+            String sql = "UPDATE items SET Quanitity_Alert = ? WHERE Name=?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, StockAlert_ItemName.getText());
+            preparedStatement.setInt(2, itemamount2);
+
+
+            int affectedRows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+            if (affectedRows > 0) {
+                Stock_ItemError.setText("Stock alert Added");
+            } else {
+                Stock_ItemError.setText("Item already exsists");
+            }
+        } catch (NumberFormatException e) {
+            Stock_ItemError.setText("Pleas enter a number");
+        }
+
+
+
+
+
+    }
+
+
+    @FXML
+    Text StockAlert_Error;
+    @FXML
+    TextField StockAlert_ItemName;
+    @FXML
+    TextField StockAlert_ItemAmmount;
+
+    public void StockAlert_Submit() throws SQLException {
+        String ItemName = StockAlert_ItemName.getText().toLowerCase();
+        String ItemAmount = StockAlert_ItemAmmount.getText().toLowerCase();
+        int itemamount2 = Integer.parseInt(ItemAmount);
+
+        Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://127.0.0.1:3306/test",
+                "root",
+                "1234"
+        );
+
+
+//tbd add check to see if item exsists
+
+
+        try {
+//            String sql = "INSERT into alertitems (Name,AlertValue) " +
+//                    "VALUES (?,?)";
+
+            String sql = "UPDATE items SET Quanitity_Alert = ? WHERE Name=?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(2, StockAlert_ItemName.getText().toLowerCase());
+            preparedStatement.setInt(1, itemamount2);
+
+
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows > 0) {
+                Stock_ItemError.setText("Stock alert Added");
+                preparedStatement.close();
+                connection.close();
+
+            } else {
+                Stock_ItemError.setText("Item Not found");
+                preparedStatement.close();
+                connection.close();
+
+            }
+        } catch (NumberFormatException e) {
+            Stock_ItemError.setText("Pleas enter a number");
+        }
+
+
+
+    }
+
+    public void createSettings_Menu(ActionEvent e) throws IOException {
+
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow(); //gets the current window to back out
+
+        stage.close();
+
+        Stage CreateItem = new Stage();
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Admin_Settings.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 620, 640);
+        CreateItem.setTitle("Creation Item");
+        CreateItem.setScene(scene);
+        CreateItem.show();
+
+    }
+
+    public void create_QuanityAlert(ActionEvent e) throws IOException {
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow(); //gets the current window to back out
+
+        stage.close();
+
+        Stage CreateItem = new Stage();
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Admin_StockAlert.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 620, 640);
+        CreateItem.setTitle("Creation Item");
+        CreateItem.setScene(scene);
+        CreateItem.show();
 
     }
 
@@ -366,7 +470,6 @@ public class Admin_Controles  {
         CreateItem.show();
 
 
-
     }
 
 
@@ -380,7 +483,6 @@ public class Admin_Controles  {
         Stage_Admin_Menu.setScene(scene);
         Stage_Admin_Menu.show();
     }
-
 
 
     public void CreateStock_Menu(ActionEvent event) throws IOException {
@@ -409,12 +511,10 @@ public class Admin_Controles  {
         stage.close();
 
 
-
         Stage Main_Menu = new Stage();
 
         main.start(Main_Menu);
     }
-
 
 
     public void Back2Menu(ActionEvent e) throws IOException { //returns the user back to menu tbd refactor name
@@ -442,9 +542,12 @@ public class Admin_Controles  {
 
         Stage Current = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Current.close();
-
-
     }
+
+
+
+
+
 
     public void Create_SettingsMenu(ActionEvent e) throws IOException {
         Stage Stage_Admin_Menu = new Stage();
@@ -459,7 +562,6 @@ public class Admin_Controles  {
         Current.close();
 
     }
-
 
 
 
